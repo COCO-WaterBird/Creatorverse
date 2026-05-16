@@ -1,0 +1,118 @@
+.landing {
+  position: relative;
+  /* full-bleed hero inside constrained #root */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background:
+    center / cover no-repeat url('/landing-hero.jpg'),
+    #070d18;
+}
+
+.landing-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 10, 28, 0.35) 0%,
+    rgba(4, 10, 28, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.landing-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 3.5rem);
+  width: min(100%, 720px);
+}
+
+.landing-title {
+  margin: 0;
+  font-family: var(--landing-font), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.25rem, 8vw, 4rem);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.45),
+    0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+.landing-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 3vw, 1.35rem);
+  background: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.landing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 11rem;
+  max-width: 14rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: #fff !important;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  box-shadow:
+    0 8px 28px rgba(37, 99, 235, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.landing-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 32px rgba(37, 99, 235, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.landing-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+  .landing-actions {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 280px;
+    margin-inline: auto;
+  }
+
+  .landing-btn {
+    width: 100%;
+    max-width: none;
+  }
+}
